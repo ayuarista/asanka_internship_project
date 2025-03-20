@@ -16,10 +16,10 @@
             </div>
             <div class="hidden md:block">
                 <div class="ml-4 flex items-center md:ml-6">
-                    <a href={{ route('posts.create') }} class="bg-blue-500 hover:bg-blue-600 transition-all text-white p-2.5 text-sm rounded">Create Posts</a>
+                    <a href={{ route('posts.create') }} class="bg-indigo-500 hover:bg-indigo-600 transition-all text-white p-3 text-sm rounded">Create Posts</a>
 
                     <!-- Profile dropdown -->
-                    <div class="relative ml-3">
+                    {{-- <div class="relative ml-3">
                         <div>
                             <button type="button" @click="isOpen = !isOpen"
                                 class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
@@ -50,7 +50,7 @@
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                 tabindex="-1" id="user-menu-item-2">Sign out</a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="-mr-2 flex md:hidden">
