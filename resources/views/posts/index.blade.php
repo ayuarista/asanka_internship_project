@@ -34,22 +34,22 @@
                         </a>
                         <div class="flex items-center gap-x-4 text-xs mt-2">
                             <time datetime="{{ $post->created_at }}"
-                                class="text-gray-500">{{ $post->created_at->diffForHumans() }}</time>
+                                class="text-gray-500 text-sm">{{ $post->created_at->diffForHumans() }}</time>
                             @if ($post->category)
                                 <a href="/posts?category={{ optional($post->category)->slug }}"
-                                    class="relative z-10 rounded-full bg-indigo-400 px-3 py-1.5 font-medium text-white hover:bg-gray-200">
+                                    class="relative z-10 rounded-full bg-indigo-400 px-3 py-1.5 font-medium text-white hover:bg-indigo-200 transition-all duration-300">
                                     {{ optional($post->category)->name }}
                                 </a>
                             @endif
                         </div>
                         <div class="group relative">
-                            <h3 class="mt-2 text-xl font-semibold text-gray-900 group-hover:text-gray-500">
+                            <h3 class="mt-2 text-[21px] font-semibold text-gray-900 group-hover:underline">
                                 <a href="/posts/{{ $post->slug }}">
                                     <span class="absolute inset-0"></span>
                                     {{ $post->title }}
                                 </a>
                             </h3>
-                            <p class="mt-3 line-clamp-3 text-justify text-pretty text-sm text-gray-600">
+                            <p class="mt-1 line-clamp-3 text-justify text-pretty text-[15px] text-gray-400">
                                 {{ Str::limit($post->body, 100) }}
                             </p>
                         </div>
