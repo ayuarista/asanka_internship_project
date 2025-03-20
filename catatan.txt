@@ -1,0 +1,124 @@
+$slug -> untuk ngubah id jadi ke string. Contoh : /posts/1 kalo dipakein slug jadinya /posts/article-1 (best practice nya buat url)
+
+Route::get('/contact', function()){
+    return view('contact') -> untuk buat url ke page contact
+}
+
+Arr:first -> Mencari elemen pertama yang memenuhi kondisi tertentu: Method ini memungkinkan Anda untuk dengan mudah mencari elemen pertama dalam array yang memenuhi suatu kondisi tanpa perlu menulis loop manual.
+
+-------------------------------------------------------------------------------
+Code untuk buat component yang ada class nya, file nya dibuat  2x
+- 1 di buat app/view/components/Navbar.php
+- 2 di buat resources/views/components/navbar.blade.php
+
+php artisan make:component Navbar
+-------------------------------------------------------------------------------
+
+
+
+Code untuk buat component simple, cuma dibuat untuk file template blade
+- 2 di buat resources/views/components/navbar.blade.php
+
+php artisan make:component Navbar --view
+-------------------------------------------------------------------------------
+
+Cara panggil component -> <x-navbar>Hello World</x-navbar> (harus ada tag pembuka dan penutup, beda kaya component react yang single closing tag)
+
+$attributes -> berfungsi untuk mengabungkan seluruh atribut yang ada di tag component yang sudah dipanggil.
+Contoh : <x-navbar h-ref="/"></x-navbar> nah href ini nanti digabung buat ditambah ke component navbar.
+
+$slot -> berfungsi mengambil data apapun yang ada didalam tag component.
+Contoh :
+
+-Isi component navbar
+<a>{{$slot}}</a>
+
+-Sesudah component dipanggil
+<x-navbar h-ref="/">Hello World<x-navbar
+
+Nah nanti Hello World itu akan otomatis ditampilkan didalam component x-navbar
+
+:active="request()->is('/') -> active adalah atribut yang berisi tipe data boolean (true or false) kalo true, berarti dianggap "active".
+
+request()->is('/'): Ini adalah method yang disediakan Laravel untuk memeriksa apakah URL saat ini cocok dengan pola tertentu.
+
+php artisan migrate -> php akan menjalankan seluruh migrations
+
+----------------------------------------------------------------------------------------------------------
+kalo nama table ga sama kaya nama model -> nama table wajib jamak (ada S nya, kalo model ga ada S nya)
+
+class Post extends Model
+{
+    protected $table = 'blog_posts';
+}
+----------------------------------------------------------------------------------------------------------
+
+Gunakan ini untuk mengambil format kapan blog dibuat
+{{ $post->created_at->format('d M, Y') }} -> d = day, M -> month, Y -> year
+{{ $post->created_at->diffForHumans() }} -> format untuk ngasi tau berapa menit yang lalu user upload blog
+
+
+Eloquent ORM -> Fitur laravel yang dibuat agar programmer dapat berinteraksi langsung dengan database ke dalam model object php (gaperlu menulis query sql secara manual) Seluruh perilaku database dan table apabila diubah oleh 1 orang, maka semua table dan database akan ikut berubah juga
+Fitur Eloquent -> Model-Based: Setiap tabel database direpresentasikan sebagai sebuah model (class PHP). Misalnya, tabel users akan memiliki model User.
+
+php artisan make:model User -m -> laravel akan otomatis membuat model dan table. Model -> user, sedangkan table users (pake S, karna jamak)
+
+php artisan tinker -> untuk menambah data ke database dengan sistem Eloquent
+cara pake tinker -> App\Models\Post::factory(50)->recycle([Category::factory(3)->create(), User::factory(10)->create()])->create()
+{{ Ngebuat 50 post, tapi category dan user di daur ulang dulu. Agar bisa dipake ke 50 post secara berulang ulang, category dan pengguna dibuat sesuai dengan berapa banyak yang kita minta (category 3, user 10). -> Category::factory(3) }}
+----------------------------------------------------------------------------------------------------------------------------
+MVC ->  Model, View, Controller
+Model -> Logika data dan interaksi dengan database
+        Fungsi {
+            1. Menyediakan fitur metode CRUD
+            2. Mengatur relasi antar table -> public function posts():HasMany return $this->hasMany(Post::class);
+            3. Menyediakan asesor dan mutator {
+                asesor -> ngambil data dari model dulu, baru setelah itu diolah datanya, lalu data baru ditampilkan
+            }   contoh asesor:
+            public function getFileUrlAttribute()
+            {
+                if ($this->file_path) {
+                    return asset('storage/' . $this->file_path);
+                }
+
+                return secure_asset(null);
+            }
+               mutator -> ngambil data lalu diolah, kemudian dimasukkan ke dalam table database
+        }
+View -> Menampilkan data ke user
+
+Controller -> mengatur logika dan route
+            Fungsi {
+                1. Menghubungkan model dan view
+                2. Menangani request {
+                public function login(LoginRequest $request): JsonResponse {
+                    $user = User::query()->where('email', $request->email)->first();
+
+                        if (!$user) {
+                            return $this->sendError('Unauthorized.', ['error' => 'Unauthorized']);
+                        }
+
+                        $token = auth('user')->tokenById($user->id);
+                        $success = $this->respondWithToken($token);
+
+                        return $this->sendResponse($success, 'User login successfully.');
+                    }
+                                }
+
+                            }
+
+authentication -> mengenalkan diri sebagai pacar arya
+authorized -> berhak gak ngakses hati nya arya
+Factory -> Pabrik pembuat data
+Seeder -> Yang ngejalanin query biar dibuatin data dari factory (Distributor ke database)
+Migrations -> Untuk membuat table. Mempermudah saat kerja tim, jadi ga perlu kirim file sql ke anggota tim satu satu tinggal php artisan migrate nanti langsung dapet table table nya.
+web.php -> berfungsi mengatur management routing (ngatur url gitu, misal /page bakal kemana kalo diklik)
+--------------------------------------------------------------------------------------------------------------------------------------------
+N + 1 PROBLEM
+N + 1 -> Hanya akan terjadi apabila kita menggunakan perulangan
+Lazy Loading -> ngambil data relasi tapi ga perlu looping (banyak query yang dibuat)
+Eager Loading -> Query nya optimal, tapi nulis query nya dibelakang layar agak ribet
+
+Lazy Loading: Data relasi di-load hanya ketika diakses. Berguna untuk menghemat memory, tetapi bisa menyebabkan N+1 Problem.
+
+Eager Loading: Data relasi di-load sekaligus. Lebih efisien untuk menghindari N+1 Problem.
