@@ -3,8 +3,8 @@
 
     <div class="bg-white py-3">
         @if(session('success'))
-            <div class="bg-green-500 text-white p-3 rounded-md mb-4">
-                {{ session('success') }}
+            <div class="bg-emerald-500 text-white p-3 mx-5 rounded-md mb-4">
+            {{ session('success') }}
             </div>
         @endif
         <form action="/posts" class="flex items-center justify-center mt-5 space-x-4">
@@ -17,9 +17,9 @@
             <div class="relative w-1/2">
                 <label for="search" class="sr-only">Search Blog</label>
                 <input type="search" placeholder="Search Blog" required autocomplete="off" name="search" id="search"
-                    class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
-            <button type="submit" class="py-2 px-4 bg-blue-500 text-white text-[15px] rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button type="submit" class="py-2 px-4 bg-indigo-500 text-white text-[15px] rounded-lg hover:bg-blue-600 focus:outline-none">
                 Search
             </button>
         </form>
@@ -34,10 +34,10 @@
                         </a>
                         <div class="flex items-center gap-x-4 text-xs mt-2">
                             <time datetime="{{ $post->created_at }}"
-                                class="text-gray-500">{{ $post->created_at->format('d M, Y') }}</time>
+                                class="text-gray-500">{{ $post->created_at->diffForHumans() }}</time>
                             @if ($post->category)
                                 <a href="/posts?category={{ optional($post->category)->slug }}"
-                                    class="relative z-10 rounded-full bg-gray-100 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-200">
+                                    class="relative z-10 rounded-full bg-indigo-400 px-3 py-1.5 font-medium text-white hover:bg-gray-200">
                                     {{ optional($post->category)->name }}
                                 </a>
                             @endif
@@ -53,7 +53,7 @@
                                 {{ Str::limit($post->body, 100) }}
                             </p>
                         </div>
-                        <div class="relative mt-8 flex items-center gap-x-4">
+                        {{-- <div class="relative mt-8 flex items-center gap-x-4">
                             <img src="{{ optional($post->author)->avatar ?? asset('default-avatar.png') }}"
                                 alt="{{ optional($post->author)->name }}"
                                 class="size-10 rounded-full bg-gray-50">
@@ -66,7 +66,7 @@
                                 </p>
                                 <p class="text-gray-600">{{ optional($post->author)->job }}</p>
                             </div>
-                        </div>
+                        </div> --}}
                     </article>
                 @empty
                     <p class="text-gray-500 font-semibold text-3xl">No posts found.</p>
