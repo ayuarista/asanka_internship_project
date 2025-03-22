@@ -9,7 +9,7 @@
         <div class="grid grid-cols-2 gap-4 max-w-2xl mt-8">
             <div class="grid col-span-2">
                 <div class="relative">
-                    <img src="https://plus.unsplash.com/premium_photo-1722771748226-a6d0c0034019?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-md">
+                    <img src="https://images.unsplash.com/photo-1501843508755-af0829d48618?q=80&w=2106&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-md">
                     <div class="absolute top-8 left-8">
                         <p class="text-sm text-white/80">FOOD</p>
                         <h1 class="font-bold text-4xl text-white">Wake up and smell <br> the coffee</h1>
