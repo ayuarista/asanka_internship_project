@@ -22,10 +22,10 @@
             </div>
             <div class="grid grid-cols-1">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1722073624764-909fc7e3db50?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="w-full rounded-md">
-                    <div class="absolute bottom-3 left-8">
-                        <p class="text-sm text-emerald-700/80">EDUCATION</p>
-                        <h1 class="font-bold text-3xl text-emerald-700">Time to learn anything</h1>
+                    <img src="https://plus.unsplash.com/premium_photo-1722781230060-63a256150359?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="w-full rounded-md">
+                    <div class="absolute top-8 left-8">
+                        <p class="text-sm text-white/80">EDUCATION</p>
+                        <h1 class="font-bold text-3xl text-white">Time to learn anything</h1>
                     </div>
                 </div>
             </div>
@@ -39,6 +39,10 @@
             <div class="grid grid-cols-1">
                 <div class="relative">
                     <img src="https://images.unsplash.com/photo-1543920926-1125e0a12243?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="w-full rounded-md shadown-xl">
+                    <div class="absolute top-10 left-5">
+                        <a href="/posts" class="px-8 py-2 font-medium rounded-md bg-black text-white hover:bg-black/80
+                         transition-all duration-300">Read Blog</a>
+                    </div>
                 </div>
             </div>
             <div class="grid grid-cols-1">
