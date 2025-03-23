@@ -32,14 +32,14 @@
                         Choose Image
                     </label>
 
-                    <input type="file" id="imageInput" name="thumbnail" class="hidden" required>
+                    <input type="file" id="imageInput" name="thumbnail" class="hidden">
 
                     <div id="filePlaceholder"
                         class="mt-2 w-full max-w-xs p-2 text-center border border-gray-300 rounded bg-gray-100 text-gray-500">
                         No file has choosen
                     </div>
 
-                    <img id="imagePreview" class="hidden w-40 h-40 object-cover mt-4 rounded-lg">
+                    <img id="imagePreview" class="hidden w-full h-full object-cover mt-4 rounded-lg">
 
                     <p id="fileError" class="text-red-500 text-sm hidden mt-2">File is too large! 2MB maximum.</p>
                 </div>
