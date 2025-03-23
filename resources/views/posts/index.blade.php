@@ -19,7 +19,7 @@
                 <input type="search" placeholder="Search Blog" required autocomplete="off" name="search" id="search"
                     class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
-            <button type="submit" class="py-2 px-4 bg-indigo-500 text-white text-[15px] rounded-lg hover:bg-blue-600 focus:outline-none">
+            <button type="submit" class="py-2 px-4 bg-indigo-500 text-white text-[15px] cursor-pointer rounded-lg hover:bg-blue-600 focus:outline-none">
                 Search
             </button>
         </form>
