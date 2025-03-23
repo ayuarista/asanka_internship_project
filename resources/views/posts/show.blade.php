@@ -13,9 +13,9 @@
                 <a href="/posts" class="text-[15px] text-gray-400 hover:underline">Back to blog</a>
             </div>
             </div>
-            <h1 class="font-bold text-4xl mt-2">{{ $post->title }}</h1>
+            <h1 class="font-bold text-5xl mt-2">{{ $post->title }}</h1>
             <div>
-                <p class="text-indigo-400 text-[15px]">Published : {{ $post->created_at->diffForHumans() }}</p>
+                <p class="text-indigo-400 mt-1"><b>Published </b>{{ $post->created_at->format('M d, Y')}}</p>
             </div>
 
             <div class="relative w-full h-80 mt-5">
