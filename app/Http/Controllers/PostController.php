@@ -34,7 +34,7 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'body' => 'required',
             'category_id' => 'required|exists:categories,id',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
         $imagePath = $request->file('thumbnail') ? $request->file('thumbnail')->store('posts', 'public') : null;
 
@@ -79,7 +79,7 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'body' => 'required',
             'category_id' => 'required|exists:categories,id',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
         $imagePath = $post->thumbnail;
