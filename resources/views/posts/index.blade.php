@@ -3,7 +3,7 @@
 
     <div class="bg-white py-3">
         @if(session('success'))
-            <div class="bg-emerald-500 text-white p-3 mx-5 rounded-md mb-4">
+            <div class="bg-green-400 font-semibold text-white p-3 mx-5 rounded-md mb-4">
             {{ session('success') }}
             </div>
         @endif
@@ -38,7 +38,7 @@
                                     class="text-gray-500 text-sm">{{ $post->created_at->diffForHumans() }}</time>
                                 @if ($post->category)
                                     <a href="/posts?category={{ optional($post->category)->slug }}"
-                                        class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-black hover:bg-gray-100 transition-all duration-300">
+                                        class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-gray-700 hover:bg-gray-100 transition-all duration-300">
                                         {{ optional($post->category)->name }}
                                     </a>
                                 @endif
