@@ -24,7 +24,7 @@
             </div>
             <h1 class="font-bold text-5xl mt-2">{{ $post->title }}</h1>
             <div>
-                <p class="text-indigo-600 mt-1"><b>Published </b>{{ $post->created_at->format('M d, Y')}}</p>
+                <p class="text-indigo-500 mt-1"><b>Published </b>{{ $post->created_at->format('l, d F Y H:i')}}</p>
             </div>
 
             <div class="relative w-full h-80 mt-5">
