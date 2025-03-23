@@ -10,19 +10,19 @@
 
         <article>
             <div class="flex flex-col items-start">
-                <a href="/posts" class="text-[15px] text-gray-400 hover:underline">Back to blog</a>
+                <a href="/posts" class="text-[15px] text-gray-600 underline">Back to blog</a>
             </div>
             </div>
             <h1 class="font-bold text-5xl mt-2">{{ $post->title }}</h1>
             <div>
-                <p class="text-indigo-400 mt-1"><b>Published </b>{{ $post->created_at->format('M d, Y')}}</p>
+                <p class="text-indigo-600 mt-1"><b>Published </b>{{ $post->created_at->format('M d, Y')}}</p>
             </div>
 
             <div class="relative w-full h-80 mt-5">
-                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Thumbnail" class="w-full h-full object-cover rounded-lg">
+                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Thumbnail" class="w-full h-full object-cover rounded-lg object-center">
             </div>
 
-            <p class="text-black text-pretty mt-3 text-justify">{{ $post->body }}</p>
+            <p class="text-black text-pretty mt-3 text-justify text-lg">{{ $post->body }}</p>
 
             <div class="mt-6 flex gap-3">
                 <a href="{{ route('posts.edit', $post->slug) }}" class="bg-indigo-500 hover:bg-indigo-500/80 transition-all duration-300 cursor-pointer text-white px-4 py-2 rounded-md">Edit</a>
