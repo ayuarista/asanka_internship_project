@@ -10,7 +10,7 @@
 
         <article>
             <div class="flex items-center justify-between mb-10">
-                <a href="/posts" class="text-[15px] text-gray-600 underline">Back to blog</a>
+                <a href="/posts" class="text-lg text-gray-600 underline">Back to blog</a>
                 <div class="flex gap-3">
                     <a href="{{ route('posts.edit', $post->slug) }}" class="bg-indigo-500 hover:bg-indigo-500/80 transition-all duration-300 cursor-pointer text-white px-4 py-2 rounded-md">Edit</a>
 
