@@ -37,13 +37,13 @@
                                 class="text-gray-500 text-sm">{{ $post->created_at->diffForHumans() }}</time>
                             @if ($post->category)
                                 <a href="/posts?category={{ optional($post->category)->slug }}"
-                                    class="relative z-10 rounded-full bg-indigo-400 px-3 py-1.5 font-medium text-white hover:bg-indigo-200 transition-all duration-300">
+                                    class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-black hover:bg-gray-100 transition-all duration-300">
                                     {{ optional($post->category)->name }}
                                 </a>
                             @endif
                         </div>
                         <div class="group relative">
-                            <h3 class="mt-2 text-[21px] font-semibold text-gray-900 group-hover:underline">
+                            <h3 class="mt-2 text-[21px] font-bold text-gray-900 group-hover:underline">
                                 <a href="/posts/{{ $post->slug }}">
                                     <span class="absolute inset-0"></span>
                                     {{ $post->title }}
