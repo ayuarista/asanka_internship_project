@@ -11,12 +11,12 @@
         <article>
             <div class="flex flex-col items-start">
                 <a href="/posts" class="text-[15px] text-gray-400 hover:underline">Back to blog</a>
-                <div>
-                    <p class="text-indigo-400 text-[15px]">Published : {{ $post->created_at->diffForHumans() }}</p>
-                </div>
             </div>
             </div>
             <h1 class="font-bold text-4xl mt-2">{{ $post->title }}</h1>
+            <div>
+                <p class="text-indigo-400 text-[15px]">Published : {{ $post->created_at->diffForHumans() }}</p>
+            </div>
 
             <div class="relative w-full h-80 mt-5">
                 <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Thumbnail" class="w-full h-full object-cover rounded-lg">
