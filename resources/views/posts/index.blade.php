@@ -32,26 +32,28 @@
                             <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}"
                                  class="w-full h-full object-cover object-center rounded-lg">
                         </a>
-                        <div class="flex items-center gap-x-4 text-xs mt-2">
-                            <time datetime="{{ $post->created_at }}"
-                                class="text-gray-500 text-sm">{{ $post->created_at->diffForHumans() }}</time>
-                            @if ($post->category)
-                                <a href="/posts?category={{ optional($post->category)->slug }}"
-                                    class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-black hover:bg-gray-100 transition-all duration-300">
-                                    {{ optional($post->category)->name }}
-                                </a>
-                            @endif
-                        </div>
-                        <div class="group relative">
-                            <h3 class="mt-2 text-[21px] font-bold text-gray-900 group-hover:underline">
-                                <a href="/posts/{{ $post->slug }}">
-                                    <span class="absolute inset-0"></span>
-                                    {{ $post->title }}
-                                </a>
-                            </h3>
-                            <p class="mt-1 line-clamp-3 text-justify text-pretty text-[15px] text-gray-400">
-                                {{ Str::limit($post->body, 100) }}
-                            </p>
+                        <div class="">
+                            <div class="flex items-center gap-x-4 text-xs mt-2">
+                                <time datetime="{{ $post->created_at }}"
+                                    class="text-gray-500 text-sm">{{ $post->created_at->diffForHumans() }}</time>
+                                @if ($post->category)
+                                    <a href="/posts?category={{ optional($post->category)->slug }}"
+                                        class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-black hover:bg-gray-100 transition-all duration-300">
+                                        {{ optional($post->category)->name }}
+                                    </a>
+                                @endif
+                            </div>
+                            <div class="group relative">
+                                <h3 class="mt-2 text-[21px] font-bold text-gray-900 group-hover:underline">
+                                    <a href="/posts/{{ $post->slug }}">
+                                        <span class="absolute inset-0"></span>
+                                        {{ $post->title }}
+                                    </a>
+                                </h3>
+                                <p class="mt-1 line-clamp-3 text-justify text-pretty text-[15px] text-gray-400">
+                                    {{ Str::limit($post->body, 100) }}
+                                </p>
+                            </div>
                         </div>
                         {{-- <div class="relative mt-8 flex items-center gap-x-4">
                             <img src="{{ optional($post->author)->avatar ?? asset('default-avatar.png') }}"
