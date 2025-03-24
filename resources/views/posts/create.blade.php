@@ -59,12 +59,23 @@
             const errorText = document.getElementById("fileError");
 
             if (file) {
+                const validExtensions = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+
+                if (!validExtensions.includes(file.type)) {
+                    alert("Invalid file format! Only JPG, JPEG, PNG, and WEBP are allowed.");
+                    event.target.value = "";
+                    preview.src = "";
+                    preview.classList.add("hidden");
+                    placeholder.textContent = "Belum ada gambar dipilih";
+                    return;
+                }
+
                 if (file.size > 2 * 1024 * 1024) {
                     errorText.classList.remove("hidden");
                     event.target.value = "";
                     preview.src = "";
                     preview.classList.add("hidden");
-                    placeholder.textContent = "No file has choosen";
+                    placeholder.textContent = "Belum ada gambar dipilih";
                 } else {
                     errorText.classList.add("hidden");
                     placeholder.textContent = file.name;
@@ -77,9 +88,10 @@
                     reader.readAsDataURL(file);
                 }
             } else {
-                placeholder.textContent = "No file has choosen";
+                placeholder.textContent = "Belum ada gambar dipilih";
                 preview.classList.add("hidden");
             }
         });
     </script>
+
 </x-layout>
