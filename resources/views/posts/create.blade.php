@@ -64,7 +64,7 @@
                     event.target.value = "";
                     preview.src = "";
                     preview.classList.add("hidden");
-                    placeholder.textContent = "Belum ada gambar dipilih";
+                    placeholder.textContent = "No file has choosen";
                 } else {
                     errorText.classList.add("hidden");
                     placeholder.textContent = file.name;
@@ -77,7 +77,7 @@
                     reader.readAsDataURL(file);
                 }
             } else {
-                placeholder.textContent = "Belum ada gambar dipilih";
+                placeholder.textContent = "No file has choosen";
                 preview.classList.add("hidden");
             }
         });
