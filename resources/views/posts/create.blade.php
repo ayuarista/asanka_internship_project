@@ -27,11 +27,11 @@
             </div>
             <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div class="mt-4 flex flex-col items-center text-sm text-gray-600">
+                    <p class="text-gray-600 text-sm">JPG, JPEG, PNG and WEBP only!</p>
                     <label for="imageInput"
-                        class="relative cursor-pointer rounded-md bg-white border border-gray-300 px-4 py-2 text-indigo-600 font-semibold hover:bg-indigo-500 hover:text-white transition-all duration-300">
+                        class="relative cursor-pointer rounded-md mt-2 bg-white border border-gray-300 px-4 py-2 text-indigo-600 font-semibold hover:bg-indigo-500 hover:text-white transition-all duration-300">
                         Choose Image
                     </label>
-
                     <input type="file" id="imageInput" name="thumbnail" class="hidden">
 
                     <div id="filePlaceholder"
