@@ -24,7 +24,7 @@ class PostController extends Controller
         $categories = Category::all();
         return view('posts.create', [
             'title' => 'Create New Post',
-            'categories' => $categories
+            'categories' => $
         ]);
     }
 
